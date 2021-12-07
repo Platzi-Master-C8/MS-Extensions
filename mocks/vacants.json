@@ -1,0 +1,54 @@
+[
+   {
+      "id": "1",
+      "title": "Dev Facebook",
+      "link": "https://platzi.com/home",
+      "company": "Facebook",
+      "salary": "2222222222",
+      "date_application": "07-12-2022",
+      "interest": "1",
+      "notes": "Me encantaria que me llamaran de aca",
+      "user_id": "123"
+   },
+   {
+      "id": "2",
+      "title": "Google Dev",
+      "link": "https://platzi.com/home",
+      "company": "Google",
+      "salary": "2222222222",
+      "date_application": "04-12-2024",
+      "interest": "1",
+      "notes": "Quiero ser google ",
+      "user_id": "123"
+   },   {
+      "id": "3",
+      "title": "Netflix Dev",
+      "link": "https://platzi.com/home",
+      "company": "Facebook",
+      "salary": "2222222222",
+      "date_application": "07-09-2021",
+      "interest": "1",
+      "notes": "Ojala me llamen de aca quiero netflix gratis",
+      "user_id": "123"
+   },   {
+      "id": "4",
+      "title": "Dev semir senior",
+      "link": "https://platzi.com/home",
+      "company": "Movistar",
+      "salary": "2222222222",
+      "date_application": "02-01-2022",
+      "interest": "1",
+      "notes": "No espero mucho de esta aplicacion",
+      "user_id": "123"
+   },   {
+      "id": "5",
+      "title": "JavaScript Jr",
+      "link": "https://platzi.com/home",
+      "company": "Polar",
+      "salary": "2222222222",
+      "date_application": "04-07-2022",
+      "interest": "1",
+      "notes": "Quiero cerveza gratis ojala se contacten conmigo",
+      "user_id": "123"
+   }
+]

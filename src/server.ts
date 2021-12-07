@@ -1,36 +1,33 @@
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
+import Hapi from "@hapi/hapi";
+import { Server } from "@hapi/hapi";
+import { DBManager } from "./db/DBManager";
 
-export class Server {
+const Routes = require("./routes/routes");
+export class App {
+  private host: string | undefined;
+  private port: string | undefined;
+  DB: DBManager;
 
-  private express: express.Express;
-  private port: string;
-
-  constructor( port: string  ) {
-   this.express = express();
-   this.port = port || '8080';
-
-   //Middlewares
-   this.middlewares();
-   //Routes
-   this.routes();
+  constructor(port: string | undefined, host: string | undefined) {
+    this.port = port || "8080";
+    this.host =  host ||"0.0.0.0";
+    this.DB = new DBManager();
   }
 
-  middlewares() {
-   //CORS
-   this.express.use(cors());
-   //read and bodyparser
-   this.express.use(express.json());
-   //Security
-   this.express.use(helmet());
+  async init(): Promise<Server> {
+    const server: Server = Hapi.server({
+      port: this.port,
+      host: this.host,
+    });
+    await this.DB.connectDB();
+    server.route(Routes);
+    return server;
   }
 
-  routes() {};
+  async start(): Promise<void> {
+    let server = await this.init();
+    console.log(`Listening on ${server.settings.host}:${server.settings.port}`);
 
-  start() {
-   this.express.listen(this.port, () => {
-   console.log("Server runing in port:", this.port);
-   });
+    return await server.start();
   }
 }

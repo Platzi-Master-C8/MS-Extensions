@@ -1,9 +1,13 @@
-import { Server }  from './server';
-import { config } from './config'
+import { App } from "./server";
+import { config } from "./config";
 
-const { PORT } = config;
+const { PORT, HOST } = config;
 
-
-const server: Server = new Server( `${PORT}` );
+const server: App = new App(PORT, HOST);
 
 server.start();
+
+process.on("unhandledRejection", (err) => {
+  console.log(err);
+  process.exit(1);
+});
