@@ -46,7 +46,7 @@ export const createVacant = async (
   try {
      console.log(vacantInfo)
     const createVacant = await jobService.addVacant(vacantInfo);
-    return createVacant;
+    return res.response(createVacant).code(201);
   } catch (error) {
      console.log(error)
     return {

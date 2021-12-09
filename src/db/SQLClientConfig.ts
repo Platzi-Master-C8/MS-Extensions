@@ -4,13 +4,25 @@ import { config } from "../config";
 export class SQLClientConfig {
   static createConfig(): SQLConfig {
     return {
-      dialect: 'mysql',
-      host: `${config.DB_DOMAIN}`,
-      port: 3306,
-      username: `${config.DB_USER}`,
-      password: `${config.DB_PASSWORD}`,
-      database: `${config.DB_NAME}`,
-      ssl: true
-    };
+    //   dialectOptions: {
+    //     ssl: {
+    //       require: true,
+    //       rejectUnauthorized: false,
+    //     },
+    //   },
+    //   dialect: "postgres",
+    //   host: `${config.DB_DOMAIN}`,
+    //   port: config.DB_PORT,
+    //   username: `${config.DB_USER}`,
+    //   password: `${config.DB_PASSWORD}`,
+    //   database: `${config.DB_NAME}`,
+    // };
+    dialect: "postgres",
+    host: `localhost`,
+    port: config.DB_PORT,
+    username: `postgres`,
+    password: `lis2017`,
+    database: `Master`,
+  };
   }
 }

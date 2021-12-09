@@ -1,9 +1,9 @@
 import { App } from "./server";
 import { config } from "./config";
 
-const { PORT, HOST } = config;
+const { SERVER_PORT, SERVER_HOST } = config;
 
-const server: App = new App(PORT, HOST);
+const server: App = new App(SERVER_PORT, SERVER_HOST);
 
 server.start();
 
