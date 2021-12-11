@@ -1,6 +1,6 @@
-import { createVacant } from "src/controllers/job_vacant/postVacant";
-import { deleteVacant } from "src/controllers/job_vacant/deleteVacant";
-import { singleVacant } from "src/controllers/job_vacant/getSingleVacant";
+import { createVacant } from "../controllers/job_vacant/postVacant";
+import { deleteVacant } from "../controllers/job_vacant/deleteVacant";
+import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 
 module.exports = [
