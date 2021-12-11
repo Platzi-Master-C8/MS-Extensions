@@ -6,7 +6,7 @@
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "outDir": "./dist",
-    "target": "es2015",
+    "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
     "preserveConstEnums": true,
