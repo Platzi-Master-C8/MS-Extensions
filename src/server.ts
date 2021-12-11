@@ -9,9 +9,9 @@ export class App {
   private port: string | undefined;
   DB: DBManager;
 
-  constructor(port: string | undefined, host: string | undefined) {
+  constructor(port: string | undefined) {
     this.port = port || "8080";
-    this.host =  host ||"0.0.0.0";
+    this.host =  "0.0.0.0";
     this.DB = new DBManager();
   }
 
