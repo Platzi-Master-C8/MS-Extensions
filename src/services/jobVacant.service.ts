@@ -3,8 +3,6 @@ import {
   JobVacantAttributes,
   JobCreationAttributes,
 } from "../models/JobVacant";
-
-new JobVacant();
 export class JobVacantService {
   //this method is use to create and save in the database, following the rules of the interface
   async addVacant(
