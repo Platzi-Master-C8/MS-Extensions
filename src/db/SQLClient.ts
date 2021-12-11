@@ -24,6 +24,18 @@ export class SQLClient implements ClientFactory<Sequelize> {
     }
   }
 
+  async openDB(): Promise<void> {
+    try {
+      // console.log(await this.client.authenticate())
+      return await this.client.authenticate({
+        logging: false
+      })
+      .then(() => console.log('DB open'))
+    } catch (error) {
+      throw new Error('Error opening DB')
+    }
+  }
+
   async finish(): Promise<void> {
     try {
       await this.client.close().then(() => console.log("DB connection closed"));
