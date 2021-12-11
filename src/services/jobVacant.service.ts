@@ -23,6 +23,7 @@ export class JobVacantService {
       const getVacants = await JobVacant.findAll();
       return getVacants;
     } catch (error) {
+      console.log(error)
       throw new Error("Error on getting all Vacants");
     }
   }

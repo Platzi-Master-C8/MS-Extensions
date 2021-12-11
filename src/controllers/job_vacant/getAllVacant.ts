@@ -15,7 +15,6 @@ export const getAllVacant = async (
       })
       .code(200);
   } catch (error) {
-    console.log(error);
     return res
       .response({
         error: "Something wrong with the service",
