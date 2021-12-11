@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strict": true,
     "noEmit": false,
     "resolveJsonModule": true,
