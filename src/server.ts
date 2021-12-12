@@ -10,7 +10,7 @@ export class App {
 
   constructor(port: string | undefined, host: string | undefined) {
     this.port = port || "8080";
-    this.host =  host ||"0.0.0.0";
+    this.host = host || "0.0.0.0";
     this.DB = new DBManager();
   }
 
@@ -18,6 +18,9 @@ export class App {
     const server: Server = Hapi.server({
       port: this.port,
       host: this.host,
+      routes: {
+        cors: true,
+      },
     });
     await this.DB.connectDB();
     server.route(Routes);
