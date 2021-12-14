@@ -10,7 +10,7 @@ export class App {
   DB: DBManager;
 
   constructor(port: string | undefined) {
-    this.port = port || "8080";
+    this.port = port || "3000";
     this.host =  "0.0.0.0";
     this.DB = new DBManager();
   }
@@ -19,6 +19,9 @@ export class App {
     const server: Server = Hapi.server({
       port: this.port,
       host: this.host,
+      routes: {
+        cors: true
+      }
     });
     await this.DB.connectDB();
     server.route(job_vacant);

@@ -2,6 +2,7 @@ import { createVacant } from "../controllers/job_vacant/postVacant";
 import { deleteVacant } from "../controllers/job_vacant/deleteVacant";
 import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
+import { updateVacant } from "../controllers/job_vacant/patchVacant";
 
 module.exports = [
   {
@@ -27,4 +28,9 @@ module.exports = [
     path: "/api/job_vacant/{user_id}/{vacant_id}",
     handler: deleteVacant,
   },
+  {
+    method: "PATCH",
+    path: "/api/job_vacant/{user_id}/{vacant_id}",
+    handler: updateVacant
+  }
 ];

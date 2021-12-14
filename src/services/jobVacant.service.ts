@@ -41,14 +41,30 @@ export class JobVacantService {
     }
   }
   //delete the vacant in our table we must have to provide de user_id and vacant_id
-  async deleteVacant(user_id: number, vacant_id: number): Promise<number | undefined> {
+  async deleteVacant(
+    user_id: number,
+    vacant_id: number
+  ): Promise<number | undefined> {
     try {
       const deleteVacant = await JobVacant.destroy({
         where: { user_id, id: vacant_id },
       });
-      return deleteVacant
+      return deleteVacant;
     } catch (error) {
-      throw new Error('Error deleting vacant')
+      throw new Error("Error deleting vacant");
+    }
+  }
+
+  async updateJobVacant(
+    vacant_id: number,
+    user_id: number,
+    data: object
+  ): Promise<object> {
+    try {
+      const update = await JobVacant.update(data, { where: { id: vacant_id, user_id } });
+      return update;
+    } catch (error) {
+      throw new Error("Error to update the vacant");
     }
   }
 }
