@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strict": true,
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "outDir": "./dist",
-    "target": "es2015",
+    "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
     "preserveConstEnums": true,
@@ -15,7 +15,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "rootDir": "src",
+    "rootDir": "./src",
     "baseUrl": ".",
   },
   "include": [

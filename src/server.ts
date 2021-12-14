@@ -2,15 +2,16 @@ import Hapi from "@hapi/hapi";
 import { Server } from "@hapi/hapi";
 import { DBManager } from "./db/DBManager";
 
-const Routes = require("./routes/routes");
+//Routs
+const job_vacant = require('./routes/job_vacant');
 export class App {
   private host: string | undefined;
   private port: string | undefined;
   DB: DBManager;
 
-  constructor(port: string | undefined, host: string | undefined) {
+  constructor(port: string | undefined) {
     this.port = port || "8080";
-    this.host = host || "0.0.0.0";
+    this.host =  "0.0.0.0";
     this.DB = new DBManager();
   }
 
@@ -23,7 +24,7 @@ export class App {
       },
     });
     await this.DB.connectDB();
-    server.route(Routes);
+    server.route(job_vacant);
     return server;
   }
 
