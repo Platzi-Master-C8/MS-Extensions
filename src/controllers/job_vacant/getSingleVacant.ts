@@ -12,9 +12,10 @@ export const singleVacant = async (req: Request, res: ResponseToolkit) => {
     if (getSingleVacant === null) {
       return res
         .response({
-          error: "Dont exist",
+          code: 400,
+          message: 'Not exist'
         })
-        .code(200);
+        .code(400);
     }
 
     return res

@@ -44,7 +44,7 @@ export class JobVacantService {
   async deleteVacant(
     user_id: number,
     vacant_id: number
-  ): Promise<number | undefined> {
+  ): Promise<number> {
     try {
       const deleteVacant = await JobVacant.destroy({
         where: { user_id, id: vacant_id },
@@ -59,7 +59,7 @@ export class JobVacantService {
     vacant_id: number,
     user_id: number,
     data: object
-  ): Promise<object> {
+  ): Promise<[number, JobVacant[]]> {
     try {
       const update = await JobVacant.update(data, { where: { id: vacant_id, user_id } });
       return update;

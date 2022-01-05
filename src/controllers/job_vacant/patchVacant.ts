@@ -7,7 +7,22 @@ export const updateVacant = async (req: any, res: ResponseToolkit) => {
 
   try {
     const updateJobVacant = await jobService.updateJobVacant(vacant_id, user_id, payload,);
-    return res.response(updateJobVacant).code(200);
+
+    if (updateJobVacant[0] === 0) {
+      return res
+        .response({
+          code: 400,
+          message: 'Not exist'
+        })
+        .code(400);
+    }
+
+    return res
+      .response({
+        code: 200,
+        message: "UPDATE",
+      })
+      .code(200);
   } catch (error) {
      console.log(error)
      throw new Error('Something wrong')
