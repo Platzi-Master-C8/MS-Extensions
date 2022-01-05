@@ -19,6 +19,9 @@ export class App {
     const server: Server = Hapi.server({
       port: this.port,
       host: this.host,
+      routes: {
+        cors: true,
+      },
     });
     await this.DB.connectDB();
     server.route(job_vacant);
