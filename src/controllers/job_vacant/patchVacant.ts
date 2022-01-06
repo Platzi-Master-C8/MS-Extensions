@@ -11,10 +11,10 @@ export const updateVacant = async (req: any, res: ResponseToolkit) => {
     if (updateJobVacant[0] === 0) {
       return res
         .response({
-          code: 400,
+          code: 204,
           message: 'Not exist'
         })
-        .code(400);
+        .code(204);
     }
 
     return res

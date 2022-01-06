@@ -8,29 +8,29 @@ module.exports = [
   {
     //Here is where the User is going to request all the job Vacant of him
     method: "GET",
-    path: "/api/job_vacant",
+    path: "/api/vacant",
     handler: getAllVacant,
   },
   {
     //Here the user is where is going to save vacants of his apply
     method: "POST",
-    path: "/api/job_vacant",
+    path: "/api/vacant",
     handler: createVacant,
   },
   {
     //Get JUST one vacant needs user_id, and the vacant_id
     method: "GET",
-    path: "/api/job_vacant/{user_id}/{vacant_id}",
+    path: "/api/vacant/{user_id}/{vacant_id}",
     handler: singleVacant,
   },
   {
     method: "DELETE",
-    path: "/api/job_vacant/{user_id}/{vacant_id}",
+    path: "/api/vacant/{user_id}/{vacant_id}",
     handler: deleteVacant,
   },
   {
     method: "PATCH",
-    path: "/api/job_vacant/{user_id}/{vacant_id}",
+    path: "/api/vacant/{user_id}/{vacant_id}",
     handler: updateVacant
   }
 ];

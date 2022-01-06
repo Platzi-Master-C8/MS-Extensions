@@ -7,9 +7,9 @@ export const deleteVacant = async (req: Request, res: ResponseToolkit) => {
     const deleteVacant = await jobService.deleteVacant(user_id, vacant_id);
     if(deleteVacant == 0) {
       return res.response({
-        code: 400,
+        code: 204,
         message: 'Not exist'
-      }).code(400);
+      }).code(204);
     }
     return res.response({
       code: 200,

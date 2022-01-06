@@ -2,7 +2,7 @@
 This API was developed with this stack: NodeJS, Hapi.dev, Typescript and Sequelize, Postgres.
 At first this API work as a CRUD where we are going to save our JobVacants in our DB.
 
-    GET /api/job_vacant
+    GET /api/vacant
 This endpoint with the method `GET` will return all the vacants the user have saved, al those in an `array`of `objects`.
 
     [
@@ -24,7 +24,7 @@ This endpoint with the method `GET` will return all the vacants the user have sa
 
  With the `POST` method we will create/save in our DB the Vacant
 
-      POST /api/job_vacant
+      POST /api/vacant
 and we have to receive in the `req.payload` the following `JSON`
 
     {
@@ -43,7 +43,7 @@ and we have to receive in the `req.payload` the following `JSON`
     
    For delete a register we will use the `DELETE` method
 
-     DELETE  /api/job_vacant/{user_id}/{vacant_id}
+     DELETE  /api/vacant/{user_id}/{vacant_id}
 We need to provide the `user_id` and the `id` of the vacant in the `req.params`, if exist this going to `DELETE` the register and return a `JSON`
 
     {
@@ -60,7 +60,7 @@ If the Vacant not exist, the `JSON` returned would be this:
     
 When we want to get a single(Just one) Vacant we need to use a `GET` method.
 
-     GET  /api/job_vacant/{user_id}/{vacant_id}
+     GET  /api/vacant/{user_id}/{vacant_id}
 
  the same way we use it with the `DELETE` method, in this case `JSON` it would be like this:
 
@@ -91,7 +91,7 @@ If the Vacant not exist, the `JSON` returned would be this:
 
 When we need to `update` one Vacant we have to use `PATCH` method. You must have to follow the rules when you create a Vacant with the `POST` method.
 
-     PATCH  /api/job_vacant/{user_id}/{vacant_id}
+     PATCH  /api/vacant/{user_id}/{vacant_id}
 
 Like the two previus method. The `JSON` returned in here it would be like this.
 
