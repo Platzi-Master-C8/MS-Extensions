@@ -22,9 +22,3 @@ export const getAllVacant = async (
       .code(401);
   }
 };
-
-
-
-
-
-

@@ -3,7 +3,6 @@ import {
   JobVacantAttributes,
   JobCreationAttributes,
 } from "../models/JobVacant";
-
 export class JobVacantService {
   //this method is use to create and save in the database, following the rules of the interface
   async addVacant(
@@ -23,6 +22,7 @@ export class JobVacantService {
       const getVacants = await JobVacant.findAll();
       return getVacants;
     } catch (error) {
+      console.log(error)
       throw new Error("Error on getting all Vacants");
     }
   }
