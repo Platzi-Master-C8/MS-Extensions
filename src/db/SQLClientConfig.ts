@@ -4,6 +4,11 @@ import { config } from "../config";
 export class SQLClientConfig {
   static createConfig(): SQLConfig {
     return {
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 300
+      },
       dialectOptions: {
         ssl: {
           require: true,
