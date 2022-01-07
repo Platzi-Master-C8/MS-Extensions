@@ -20,13 +20,8 @@ export class App {
       port: this.port,
       host: this.host,
       routes: {
-<<<<<<< HEAD
         cors: true
       }
-=======
-        cors: true,
-      },
->>>>>>> cdeaa10c1e6315da5c011df4fc6a38763bbeca3e
     });
     await this.DB.connectDB();
     server.route(job_vacant);
