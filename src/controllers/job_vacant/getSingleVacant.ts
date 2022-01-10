@@ -9,6 +9,7 @@ export const singleVacant = async (req: Request, res: ResponseToolkit) => {
       user_id,
       vacant_id
     );
+    console.log(getSingleVacant)
     if (getSingleVacant === null) {
       return res
         .response({

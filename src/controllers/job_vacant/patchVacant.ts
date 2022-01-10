@@ -7,6 +7,7 @@ export const updateVacant = async (req: any, res: ResponseToolkit) => {
 
   try {
     const updateJobVacant = await jobService.updateJobVacant(vacant_id, user_id, payload,);
+    console.log(updateJobVacant)
 
     if (updateJobVacant[0] === 0) {
       return res
