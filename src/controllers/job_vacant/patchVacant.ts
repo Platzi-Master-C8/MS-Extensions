@@ -9,7 +9,7 @@ export const updateVacant = async (req: any, res: ResponseToolkit) => {
     const updateJobVacant = await jobService.updateJobVacant(vacant_id, user_id, payload,);
     console.log(updateJobVacant)
 
-    if (updateJobVacant[0] === 0) {
+    if (updateJobVacant[0] == 0) {
       return res
         .response({
           code: 204,
