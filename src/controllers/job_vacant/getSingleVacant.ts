@@ -9,14 +9,13 @@ export const singleVacant = async (req: Request, res: ResponseToolkit) => {
       user_id,
       vacant_id
     );
-    console.log(getSingleVacant)
     if (getSingleVacant === null) {
       return res
         .response({
-          code: 204,
-          message: 'Not exist'
+          code: 404,
+          message: "Not exist",
         })
-        .code(204);
+        .code(404);
     }
 
     return res

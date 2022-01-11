@@ -5,12 +5,11 @@ export const deleteVacant = async (req: Request, res: ResponseToolkit) => {
   const { user_id, vacant_id } = req.params;
   try {
     const deleteVacant = await jobService.deleteVacant(user_id, vacant_id);
-    console.log(deleteVacant)
     if(deleteVacant === 0) {
       return res.response({
-        code: 204,
+        code: 404,
         message: 'Not exist'
-      }).code(204);
+      }).code(404);
     }
     return res.response({
       code: 200,
