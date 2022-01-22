@@ -4,7 +4,7 @@ import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 import { updateVacant } from "../controllers/job_vacant/patchVacant";
 
-const API_VERSION: string  = '/api/v1'
+const API_VERSION: string  = '/api'
 
 module.exports = [
   {
