@@ -13,6 +13,9 @@ export const createVacant = async (
      date_application,
      interest,
      notes,
+     salary_from,
+     salary_to,
+     currency,
      user_id,
    } = req.payload;
  
@@ -24,6 +27,9 @@ export const createVacant = async (
      date_application,
      interest,
      notes,
+     salary_from,
+     salary_to,
+     currency,
      user_id,
    };
    try {
