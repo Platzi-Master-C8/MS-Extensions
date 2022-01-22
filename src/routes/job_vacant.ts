@@ -4,33 +4,37 @@ import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 import { updateVacant } from "../controllers/job_vacant/patchVacant";
 
+const API_VERSION: string  = '/api/v1'
+
 module.exports = [
   {
     //Here is where the User is going to request all the job Vacant of him
     method: "GET",
-    path: "/api/job-vacancies",
+    path: `${API_VERSION}/job-vacancies`,
     handler: getAllVacant,
   },
   {
     //Here the user is where is going to save vacants of his apply
     method: "POST",
-    path: "/api/job-vacancies",
+    path: `${API_VERSION}/job-vacancies`,
     handler: createVacant,
   },
   {
     //Get JUST one vacant needs user_id, and the vacant_id
     method: "GET",
-    path: "/api/job-vacancies/{user_id}/{vacant_id}",
+    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
     handler: singleVacant,
   },
   {
+    //Delete one vacant
     method: "DELETE",
-    path: "/api/job-vacancies/{user_id}/{vacant_id}",
+    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
     handler: deleteVacant,
   },
   {
+    //Update one vacant with user_id and vacant_id
     method: "PATCH",
-    path: "/api/job-vacancies/{user_id}/{vacant_id}",
+    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
     handler: updateVacant
   }
 ];

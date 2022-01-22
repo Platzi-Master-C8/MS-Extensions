@@ -12,9 +12,12 @@ This endpoint with the method `GET` will return all the vacants the user have sa
 		    "link":  "facebook/jobs",//Link to the Vacant
 		    "company":  "Facebook",//Company
 		    "salary":  "22222",//Salary show in the vacant
-		    "date_application":  null,//Date of apply
+		    "date_application":  TIMESTAMP,//Date of apply
 		    "interest":  3,//Our interest in this vacant
 		    "notes":  "Quiero este trabajo",//Some notes if we want
+			 "salary_from": 2222,
+			 "salary_to": 222222,
+			 "currency": "USD"
 		    "user_id":  1,//User id
 		    "createdAt":  "2021-12-06T23:44:49.142Z",//Create at
 		    "updatedAt":  "2021-12-06T23:44:49.142Z"//Update
@@ -36,6 +39,9 @@ and we have to receive in the `req.payload` the following `JSON`
 		    "date_application":  null,//Date of apply
 		    "interest":  3,//Our interest in this vacant
 		    "notes":  "Quiero este trabajo",//Some notes if we want
+			 "salary_from": 2222,//salary_from and salary_to it would be the range
+			 "salary_to": 222222,
+			 "currency": "USD",
 		    "user_id":  1,//User id
 		    "createdAt":  "2021-12-06T23:44:49.142Z",//Create at
 		    "updatedAt":  "2021-12-06T23:44:49.142Z"//Update
@@ -75,6 +81,9 @@ When we want to get a single(Just one) Vacant we need to use a `GET` method.
     		"date_application":  null,
     		"interest":  3,
     		"notes":  "Quiero este trabajo",
+			"salary_from": 2222,
+			"salary_to": 222222,
+			"currency": "USD"
     		"user_id":  3,
     		"createdAt":  "2022-01-05T13:04:47.844Z",
     		"updatedAt":  "2022-01-05T13:04:47.844Z"

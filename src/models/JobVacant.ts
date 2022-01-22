@@ -8,7 +8,9 @@ export interface JobVacantAttributes {
    title: string;
    link: string;
    company: string;
-   salary: number;
+   salary_from: number;
+   salary_to: number;
+   currency: string
    date_application: Date;
    interest: number;
    notes: string;
@@ -22,7 +24,9 @@ export class JobVacant extends Model<JobVacantAttributes, JobCreationAttributes>
    public title!: string;
    public link!: string;
    public company!: string;
-   public salary!: number;
+   public salary_from!: number;
+   public salary_to!: number;
+   public currency!: string;
    public date_application!: Date;
    public interest!: number;
    public notes!: string;
@@ -57,8 +61,14 @@ export class JobVacantInitializer implements ModelInitializer {
             allowNull: false,
             type: DataTypes.STRING(128)
          },
-         salary: {
+         salary_from: {
             type: DataTypes.STRING(128)
+         },
+         salary_to: {
+            type: DataTypes.STRING(128)
+         },
+         currency: {
+            type: new DataTypes.STRING(128)
          },
          date_application: {
             type: DataTypes.DATEONLY
