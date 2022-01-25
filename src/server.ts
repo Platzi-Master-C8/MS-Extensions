@@ -1,7 +1,7 @@
 import Hapi from "@hapi/hapi";
 import { Server } from "@hapi/hapi";
 import { DBManager } from "./db/DBManager";
-const authStrategy = require("./plugins/authStrategy");
+// const authStrategy = require("./plugins/authStrategy");
 
 //Routs
 const job_vacant = require("./routes/job_vacant");
@@ -25,7 +25,7 @@ export class App {
       },
     });
     await this.DB.connectDB();
-    await server.register(authStrategy);
+    // await server.register(authStrategy);
     await server.route(job_vacant);
     return server;
   }
