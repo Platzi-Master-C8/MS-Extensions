@@ -1,10 +1,8 @@
-// import { Jwt } from "@hapi/jwt";
-import { Request, ResponseToolkit, Server } from "hapi";
 const Jwt = require('@hapi/jwt')
 
 exports.plugin = {
   name: "auth",
-  register: async function (server: Server, options) {
+  register: async function (server, options) {
     await server.register(Jwt);
 
     server.auth.strategy("auth0_jwt", "jwt", {
@@ -16,7 +14,7 @@ exports.plugin = {
         iss: "https://platzimaster.us.auth0.com/",
         sub: false,
       },
-      validate: (artifacts, request: Request, h: ResponseToolkit) => {
+      validate: (artifacts, request, h) => {
         console.log(artifacts.decoded.payload);
         return {
           isValid: true,
