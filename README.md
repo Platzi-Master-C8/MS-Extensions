@@ -11,7 +11,6 @@ This endpoint with the method `GET` will return all the vacants the user have sa
 		    "title":  "Dev Facebbok",//Title
 		    "link":  "facebook/jobs",//Link to the Vacant
 		    "company":  "Facebook",//Company
-		    "salary":  "22222",//Salary show in the vacant
 		    "date_application":  TIMESTAMP,//Date of apply
 		    "interest":  3,//Our interest in this vacant
 		    "notes":  "Quiero este trabajo",//Some notes if we want
@@ -35,7 +34,6 @@ and we have to receive in the `req.payload` the following `JSON`
 		    "title":  "Dev Facebbok",//Title
 		    "link":  "facebook/jobs",//Link to the Vacant
 		    "company":  "Facebook",//Company
-		    "salary":  "22222",//Salary show in the vacant
 		    "date_application":  null,//Date of apply
 		    "interest":  3,//Our interest in this vacant
 		    "notes":  "Quiero este trabajo",//Some notes if we want
@@ -77,7 +75,6 @@ When we want to get a single(Just one) Vacant we need to use a `GET` method.
     		"title":  "Dev 3",
     		"link":  "google/job 3",
     		"company":  "Google 3",
-    		"salary":  "22222",
     		"date_application":  null,
     		"interest":  3,
     		"notes":  "Quiero este trabajo",

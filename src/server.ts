@@ -1,9 +1,10 @@
 import Hapi from "@hapi/hapi";
 import { Server } from "@hapi/hapi";
 import { DBManager } from "./db/DBManager";
+const authStrategy = require("./plugins/authStrategy");
 
 //Routs
-const job_vacant = require('./routes/job_vacant');
+const job_vacant = require("./routes/job_vacant");
 export class App {
   private host: string | undefined;
   private port: string | undefined;
@@ -11,7 +12,7 @@ export class App {
 
   constructor(port: string | undefined) {
     this.port = port || "3000";
-    this.host =  "0.0.0.0";
+    this.host = "0.0.0.0";
     this.DB = new DBManager();
   }
 
@@ -20,11 +21,12 @@ export class App {
       port: this.port,
       host: this.host,
       routes: {
-        cors: true
-      }
+        cors: true,
+      },
     });
     await this.DB.connectDB();
-    server.route(job_vacant);
+    await server.register(authStrategy);
+    await server.route(job_vacant);
     return server;
   }
 
