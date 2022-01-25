@@ -22,6 +22,7 @@
   "dependencies": {
     "@hapi/hapi": "20.2.1",
     "@hapi/jwt": "^2.1.0",
+    "@types/hapi__jwt": "^2.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "mysql2": "^2.3.3",
