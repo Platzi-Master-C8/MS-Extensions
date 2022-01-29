@@ -8,6 +8,15 @@ const API_VERSION: string  = '/api'
 
 module.exports = [
   {
+    //This endpoints is only for test porpuse
+    method: "GET",
+    path: '/',
+    handler: function (request, h) {
+
+      return 'Hello World!';
+  }
+  },
+  {
     //Here is where the User is going to request all the job Vacant of him
     method: "GET",
     path: `${API_VERSION}/job-vacancies`,
