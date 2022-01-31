@@ -6,7 +6,7 @@ And we will use auth0 for the authentication/authorization. For this task we nee
 
     https://{domain}/authorize?response_type=token&client_id={client_id}&connection={red_social}&redirect_uri={url_redirect}&audience=https://{domain}/api/v2/
 
-Now we have to provide the fields: `domain`, `client_id` and `url_redirect`. On `red_social`we have to provide the social network that we want to use for the auth: `facebook`, `twitter`, `linkdin`.
+Now we have to provide the fields: `domain`, `client_id` and `url_redirect`. At `red_social`we have to provide the social network that we want to use for the auth: `facebook`, `twitter`, `linkdin`.
 
 This will return a `Bearer` token and you must have to provide with every single request in our `endpoints`
 
