@@ -2,6 +2,14 @@
 This API was developed with this stack: NodeJS, Hapi.dev, Typescript and Sequelize, Postgres.
 At first this API work as a CRUD where we are going to save our JobVacants in our DB.
 
+And we will use auth0 for the authentication/authorization. For this task we need to use this `endpoint` from auth0.
+
+    https://{domain}/authorize?response_type=token&client_id={client_id}&connection={red_social}&redirect_uri={url_redirect}&audience=https://{domain}/api/v2/
+
+Now we have to provide the fields: `domain`, `client_id` and `url_redirect`. At `red_social`we have to provide the social network that we want to use for the auth: `facebook`, `twitter`, `linkdin`.
+
+This will return a `Bearer` token and you must have to provide with every single request in our `endpoints`
+
     GET /api/job-vacancies
 This endpoint with the method `GET` will return all the vacants the user have saved, al those in an `array`of `objects`.
 
