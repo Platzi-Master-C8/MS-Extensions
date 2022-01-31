@@ -3,7 +3,6 @@ import { deleteVacant } from "../controllers/job_vacant/deleteVacant";
 import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 import { updateVacant } from "../controllers/job_vacant/patchVacant";
-const Joi = require('joi');
 const {verify_post,verify_schema} = require('../helpers/validation_schema');
 
 const API_VERSION: string  = '/api'
