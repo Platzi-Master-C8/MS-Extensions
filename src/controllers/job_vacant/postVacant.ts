@@ -16,6 +16,8 @@ export const createVacant = async (
      salary_from,
      salary_to,
      currency,
+     remote,
+     status,
      user_id,
    } = req.payload;
  
@@ -30,6 +32,8 @@ export const createVacant = async (
      salary_from,
      salary_to,
      currency,
+     remote,
+     status,
      user_id,
    };
    try {

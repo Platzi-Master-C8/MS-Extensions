@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const verify_post = Joi.object({
+export const VERIFY_POST = Joi.object({
     title: Joi.string().max(128).required(),
     date_application: Joi.string(),
     link: Joi.string().max(128).required(),
@@ -9,11 +9,13 @@ const verify_post = Joi.object({
     salary_to: Joi.number().integer(),
     interest: Joi.number().integer(),
     currency: Joi.string().max(128),
+    remote: Joi.boolean(),
+    status: Joi.string(),
     notes: Joi.string().max(128),
     user_id: Joi.number().integer(),
 });
 
-const verify_schema = Joi.object({
+export const VERIFY_SCHEMA = Joi.object({
     title: Joi.string().max(128),
     link: Joi.string().max(128),
     company: Joi.string().max(128),
@@ -22,11 +24,8 @@ const verify_schema = Joi.object({
     interest: Joi.number().integer(),
     currency: Joi.string().max(128),
     notes: Joi.string().max(128),
+    remote: Joi.boolean(),
+    status: Joi.string(),
     user_id: Joi.number().integer(),
     vacant_id: Joi.number().integer(),
 });
-
-module.exports ={
-    verify_post,
-    verify_schema,
-}

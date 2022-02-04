@@ -3,7 +3,7 @@ import { deleteVacant } from "../controllers/job_vacant/deleteVacant";
 import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 import { updateVacant } from "../controllers/job_vacant/patchVacant";
-const {verify_post,verify_schema} = require('../helpers/validation_schema');
+import { VERIFY_POST, VERIFY_SCHEMA} from "../helpers/validation_schema";
 
 const API_VERSION: string  = '/api'
 
@@ -29,7 +29,7 @@ module.exports = [
     path: `${API_VERSION}/job-vacancies`,
     options: {
       validate: {
-          payload: verify_post
+          payload: VERIFY_POST
       }
     },
     handler: createVacant,
@@ -46,9 +46,9 @@ module.exports = [
     path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
     options: {
       validate: {
-          payload: verify_schema
+          payload: VERIFY_SCHEMA
       }
-    }, 
+    },
     handler: deleteVacant,
   },
   {
@@ -57,7 +57,7 @@ module.exports = [
     path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
     options: {
       validate: {
-          payload: verify_schema
+          payload: VERIFY_SCHEMA
       }
     },
     handler: updateVacant

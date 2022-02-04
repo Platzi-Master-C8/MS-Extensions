@@ -4,6 +4,7 @@ import { jobService } from "../../services/jobVacant.service";
 export const updateVacant = async (req: any, res: ResponseToolkit) => {
   const { payload } = req;
   const { user_id, vacant_id } = req.params;
+  console.log(user_id, vacant_id)
 
   try {
     const updateJobVacant = await jobService.updateJobVacant(
