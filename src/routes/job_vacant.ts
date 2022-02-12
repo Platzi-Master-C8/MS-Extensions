@@ -4,6 +4,8 @@ import { singleVacant } from "../controllers/job_vacant/getSingleVacant";
 import { getAllVacant } from "../controllers/job_vacant/getAllVacant";
 import { updateVacant } from "../controllers/job_vacant/patchVacant";
 import { VERIFY_POST, VERIFY_SCHEMA} from "../helpers/validation_schema";
+import { getUsers } from "../controllers/getUser";
+import { postUser } from "../controllers/postUsers";
 
 const API_VERSION: string  = '/api'
 
@@ -12,10 +14,13 @@ module.exports = [
     //This endpoints is only for test porpuse
     method: "GET",
     path: '/',
-    handler: function (request, h) {
-
-      return 'Hello World!';
-  }
+    handler: getUsers
+  },
+  {
+    //This endpoints is only for test porpuse
+    method: "POST",
+    path: '/users',
+    handler: postUser
   },
   {
     //Here is where the User is going to request all the job Vacant of him
@@ -37,24 +42,19 @@ module.exports = [
   {
     //Get JUST one vacant needs user_id, and the vacant_id
     method: "GET",
-    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
+    path: `${API_VERSION}/job-vacancies/{vacant_id}`,
     handler: singleVacant,
   },
   {
     //Delete one vacant
     method: "DELETE",
-    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
-    options: {
-      validate: {
-          payload: VERIFY_SCHEMA
-      }
-    },
+    path: `${API_VERSION}/job-vacancies/{vacant_id}`,
     handler: deleteVacant,
   },
   {
     //Update one vacant with user_id and vacant_id
     method: "PATCH",
-    path: `${API_VERSION}/job-vacancies/{user_id}/{vacant_id}`,
+    path: `${API_VERSION}/job-vacancies/{vacant_id}`,
     options: {
       validate: {
           payload: VERIFY_SCHEMA

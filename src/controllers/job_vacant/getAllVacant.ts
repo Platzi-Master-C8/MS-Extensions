@@ -5,8 +5,11 @@ export const getAllVacant = async (
   req: Request,
   res: ResponseToolkit
 ): Promise<object> => {
+  //With this we can extract the sub key provide with the JWT token
+  const { sub } = req.auth.credentials;
   try {
-    const getVacant = await jobService.getVacants();
+    const getVacant = await jobService.getVacants(sub);
+    console.log(getVacant);
     return res
       .response({
         code: 200,

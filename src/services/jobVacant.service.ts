@@ -12,14 +12,15 @@ export class JobVacantService {
       const createVacant = await JobVacant.create(jobData);
       return createVacant;
     } catch (error) {
+      console.log(error)
       throw new Error("Error on creating a vacant");
     }
   }
 
   //this method is use to get all the records in our database
-  async getVacants(): Promise<Array<JobVacant>> {
+  async getVacants(user_id: any): Promise<Array<JobVacant>> {
     try {
-      const getVacants = await JobVacant.findAll();
+      const getVacants = await JobVacant.findAll({ where: { user_id } });
       return getVacants;
     } catch (error) {
       console.log(error)
@@ -28,7 +29,7 @@ export class JobVacantService {
   }
   //this method is going to get ONE vacant we must provide de user_id and vacant_id
   async getSingleVacant(
-    user_id: number,
+    user_id: string,
     vacant_id: number
   ): Promise<JobVacant | null> {
     try {
@@ -42,7 +43,7 @@ export class JobVacantService {
   }
   //delete the vacant in our table we must have to provide de user_id and vacant_id
   async deleteVacant(
-    user_id: number,
+    user_id: string,
     vacant_id: number
   ): Promise<number> {
     try {
@@ -57,7 +58,7 @@ export class JobVacantService {
 
   async updateJobVacant(
     vacant_id: number,
-    user_id: number,
+    user_id: string,
     data: object
   ): Promise<[number, JobVacant[]]> {
     try {

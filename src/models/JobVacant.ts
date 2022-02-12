@@ -15,7 +15,7 @@ export interface JobVacantAttributes {
   notes: string;
   remote: boolean;
   status: string;
-  user_id: number;
+  user_id: string;
 }
 
 export interface JobCreationAttributes
@@ -37,7 +37,7 @@ export class JobVacant extends Model<
   public notes!: string;
   public remote!: boolean;
   public status!: string;
-  public user_id!: number;
+  public user_id!: string;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;

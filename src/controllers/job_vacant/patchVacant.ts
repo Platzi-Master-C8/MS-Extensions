@@ -3,9 +3,10 @@ import { jobService } from "../../services/jobVacant.service";
 
 export const updateVacant = async (req: any, res: ResponseToolkit) => {
   const { payload } = req;
-  const { user_id, vacant_id } = req.params;
-  console.log(user_id, vacant_id)
-
+  const { vacant_id } = req.params;
+  //With this we can extract the sub key provide with the JWT token
+  const { sub } = req.auth.credentials;
+  const user_id = `${sub}`
   try {
     const updateJobVacant = await jobService.updateJobVacant(
       vacant_id,
