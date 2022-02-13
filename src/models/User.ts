@@ -3,19 +3,19 @@ import { ModelInitializer } from "./ModelInitializer";
 
 
 export interface User {
-   id: number;
-   name: string,
-   email: string,
-   website: string,
-   date_of_birth: Date,
-   gender: string,
-   hashtags: string,
+   id: number | string;
+   name?: string,
+   email?: string,
+   website?: string,
+   date_of_birth?: Date,
+   gender?: string,
+   hashtags?: string,
 }
 
 export interface UserCreationAttributes extends Optional<User, "id"> {}
 
 export class UserModel extends Model<User, UserCreationAttributes> {
-   public id!: number;
+   public id!: number | string;
    public name!: string;
    public email!: string;
    public website!: string;
@@ -36,11 +36,11 @@ export class UserInitializer implements ModelInitializer {
             type: new DataTypes.INTEGER,
           },
           name: {
-             allowNull: false,
+             allowNull: true,
              type: DataTypes.STRING(128)
           },
           email: {
-            allowNull: false,
+            allowNull: true,
              type: DataTypes.STRING(128)
          },
           website: {

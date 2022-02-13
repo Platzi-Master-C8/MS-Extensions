@@ -13,6 +13,9 @@ module.exports = [
   {
     //This endpoints is only for test porpuse
     method: "GET",
+    options: {
+      // auth: false
+    },
     path: '/',
     handler: getUsers
   },
