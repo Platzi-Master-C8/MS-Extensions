@@ -1,6 +1,7 @@
 import { Request, ResponseToolkit } from "@hapi/hapi";
-import { userService } from "../../services/userModel";
+import { userService } from "../../services/User.service";
 import { jobService } from "../../services/jobVacant.service";
+import { getUserProfile } from "../../services/GetUserProfile.service";
 
 export const getAllVacant = async (
   req: Request,
@@ -8,12 +9,19 @@ export const getAllVacant = async (
 ): Promise<object> => {
   //With this we can extract the sub key provide with the JWT token
   const { sub } = req.auth.credentials;
-  console.log(req.auth.credentials.sub);
   try {
     //Verify if the user exist, if not, create
     const getSingleUser = await userService.getSingleUser(`${sub}`);
     if (getSingleUser === null) {
-      await userService.addUser({ id: `${sub}` });
+      //with the auth0 token get info from profile: email, name
+      const data = await getUserProfile.getInfo(req.auth.artifacts.token);
+      const { sub, name, email = "" } = data.data;
+      let createUser = {
+        id: sub,
+        name,
+        email,
+      };
+      await userService.addUser(createUser);
     }
     //get all vacants of the user
     const getVacant = await jobService.getVacants(sub);

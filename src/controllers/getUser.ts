@@ -1,14 +1,12 @@
 import { Request, ResponseToolkit } from "@hapi/hapi";
-import { linkedinService } from "../services/linkedin.service";
-import { userService } from "../services/userModel";
+// import { getUserProfile } from "../services/GetUserProfile.service";
+import { userService } from "../services/User.service";
 
 export const getUsers = async (
   req: Request,
   res: ResponseToolkit
 ): Promise<object> => {
-  console.log(req.auth.credentials)
-  const getData = await linkedinService.getInfo(req.auth.artifacts.token);
-  console.log(getData)
+  // const getData = await getUserProfile.getInfo(req.auth.artifacts.token);
   try {
     const getVacant = await userService.getUsers();
     return res
