@@ -12,7 +12,8 @@ export class JobVacantService {
       const createVacant = await JobVacant.create(jobData);
       return createVacant;
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      console.log(error);
       throw new Error("Error on creating a vacant");
     }
   }
@@ -23,7 +24,7 @@ export class JobVacantService {
       const getVacants = await JobVacant.findAll({ where: { user_id } });
       return getVacants;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       throw new Error("Error on getting all Vacants");
     }
   }
@@ -42,10 +43,7 @@ export class JobVacantService {
     }
   }
   //delete the vacant in our table we must have to provide de user_id and vacant_id
-  async deleteVacant(
-    user_id: string,
-    vacant_id: number
-  ): Promise<number> {
+  async deleteVacant(user_id: string, vacant_id: number): Promise<number> {
     try {
       const deleteVacant = await JobVacant.destroy({
         where: { user_id, id: vacant_id },
@@ -62,7 +60,9 @@ export class JobVacantService {
     data: object
   ): Promise<[number, JobVacant[]]> {
     try {
-      const update = await JobVacant.update(data, { where: { id: vacant_id, user_id } });
+      const update = await JobVacant.update(data, {
+        where: { id: vacant_id, user_id },
+      });
       return update;
     } catch (error) {
       throw new Error("Error to update the vacant");
